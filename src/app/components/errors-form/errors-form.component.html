@@ -1,0 +1,25 @@
+<div
+  *ngIf="control && controlLabel && control.invalid && control.errors && (control.dirty || control.touched)"
+  class="alert alert-danger mt-1">
+
+  <div *ngIf="control.errors.required">
+    The field {{controlLabel}} is required.
+  </div>
+
+  <div *ngIf="control.errors.email">
+    The field {{controlLabel}} must be a valid email address.
+  </div>
+
+  <div *ngIf="control.errors.minlength">
+    The field {{controlLabel}} must be at least {{control.errors.minlength.requiredLength}} characters long.
+  </div>
+
+  <div *ngIf="control.errors.maxlength">
+    The field {{controlLabel}} must be at most {{control.errors.maxlength.requiredLength}} characters long.
+  </div>
+
+  <div *ngIf="control.errors.min">
+    The field {{controlLabel}} must be at least {{control.errors.min.min}}.
+  </div>
+
+</div>

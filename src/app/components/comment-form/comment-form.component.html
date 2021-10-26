@@ -1,0 +1,38 @@
+<form [formGroup]="form" (ngSubmit)="onSubmitForm()">
+  <div class="form-floating mb-3">
+    <input
+    type="text"
+    class="form-control"
+    id="author"
+    formControlName="author"
+    [(ngModel)]="commentary.author">
+    <label for="author">Your pseudo</label>
+
+    <app-errors-form
+      [control]="form.controls.author"
+      controlLabel="'pseudo'">
+    </app-errors-form>
+  </div>
+
+  <div class="form-floating mb-3">
+    <input
+    type="text"
+    class="form-control"
+    id="content"
+    formControlName="content"
+    [(ngModel)]="commentary.content">
+    <label for="content">Your Comment</label>
+
+    <app-errors-form
+      [control]="form.controls.content"
+      controlLabel="'comment'">
+    </app-errors-form>
+  </div>
+
+  <div class="row col-6 mx-auto">
+    <button
+    [disabled]="form.invalid"
+    type="submit"
+    class="btn btn-dark btn-lg btn-block">Send comment</button>
+  </div>
+</form>

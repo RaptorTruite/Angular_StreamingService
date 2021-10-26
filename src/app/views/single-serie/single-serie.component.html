@@ -1,0 +1,36 @@
+<div class="px-4 py-3 text-center">
+  <h1 class="display-5 fw-bold">SERIE</h1>
+</div>
+
+<div class="row col-6 card shadow mx-auto my-5 py-2"
+  *ngIf="serie">
+
+  <img [src]="serie.picture">
+
+  <div class="card-body">
+    <h2 class="card-title text-center">{{serie.name}}</h2>
+    <p class="card-text text-center"><strong>{{serie.critic}}</strong></p>
+    <p class="card-text">{{serie.description}}</p>
+    <p class="card-text">
+      <small class="text-muted">Release Date: {{serie.dateFirstSeason | date:'mediumDate'}}</small>
+    </p>
+  </div>
+  <hr>
+  <div *ngIf="serie.commentaries.length > 0">
+    <h3 class="text-center">Comments</h3>
+    <div *ngFor="let comment of serie.commentaries">
+      <h5 class="text-start">#{{comment.id + 1}} {{comment.author}}</h5>
+      <p>{{comment.content}}</p>
+      <p class="text-end"><small class="text-muted">{{comment.date | date:'short'}}</small></p>
+    </div>
+    <hr>
+  </div>
+  <div [hidden]="showCommentForm" class="my-4">
+    <app-comment-form [serie]="serie"></app-comment-form>
+  </div>
+  <div class="d-flex justify-content-between">
+    <button (click)="onClickAddCommentBtn()" class="btn btn-primary mx-1">ADD A COMMENT</button>
+    <a routerLink="/series" class="btn btn-outline-dark mx-1">BACK</a>
+  </div>
+
+</div>

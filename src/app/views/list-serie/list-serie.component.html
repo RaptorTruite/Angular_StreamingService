@@ -1,0 +1,38 @@
+<div class="px-4 py-5 text-center">
+  <h1 class="display-5 fw-bold">Streamix Prime +</h1>
+  <div class="col-lg-6 mx-auto">
+    <p class="lead">Streamix Prime + is the n°1 streaming platform to watch an endless number of series to avoid doing real work !</p>
+  </div>
+</div>
+
+<div class="col-10 mx-auto">
+
+  <div class="d-flex justify-content-between mb-3">
+    <h2>OUR SERIES</h2>
+    <button
+    routerLink="/series/add"
+    class="btn btn-success btn-lg">ADD SERIE</button>
+  </div>
+</div>
+
+<div class="row justify-content-center">
+    <ng-container *ngIf="series.length > 0">
+    <div *ngFor="let serie of series"
+          class="card col-3 m-4"
+          style="width: 18rem;">
+      <img
+        src="{{serie.picture}}"
+        class="card-img-top p-2"
+        style="cursor: pointer; height: 75%;"
+        [routerLink]="['/series', serie.id]">
+      <div class="card-body">
+        <h5 class="card-title">#{{serie.id + 1}} {{serie.name}}</h5>
+        <p class="card-text">Release date : {{serie.dateFirstSeason | date:'mediumDate'}}</p>
+        <div class="row">
+          <button [routerLink]="['/series', serie.id, 'edit']" class="col mx-2 btn btn-warning">Modifier</button>
+          <button (click)="onClickDeleteSerie(serie)" class="col mx-2 btn btn-danger">Supprimer</button>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+</div>

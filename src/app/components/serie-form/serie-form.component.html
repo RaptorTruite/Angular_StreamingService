@@ -1,0 +1,105 @@
+<form [formGroup]="form" (ngSubmit)="onSubmitForm()">
+  <div class="form-floating mb-3">
+    <input
+    type="text"
+    class="form-control"
+    id="name"
+    formControlName="name"
+    [(ngModel)]="serie.name">
+    <label for="name">Name of the serie</label>
+
+    <app-errors-form
+      [control]="form.controls.name"
+      controlLabel="'Name of the Serie'">
+    </app-errors-form>
+  </div>
+
+  <div class="form-floating mb-3">
+    <input
+    type="date"
+    class="form-control"
+    id="dateFirstSeason"
+    formControlName="dateFirstSeason"
+    [(ngModel)]="serie.dateFirstSeason">
+    <label for="dateFirstSeason">Release date</label>
+
+    <app-errors-form
+      [control]="form.controls.dateFirstSeason"
+      controlLabel="'Release date'">
+    </app-errors-form>
+  </div>
+
+  <div class="form-floating mb-3">
+    <input
+    type="number"
+    class="form-control"
+    id="numberOfSeason"
+    formControlName="numberOfSeason"
+    [(ngModel)]="serie.numberOfSeason">
+    <label for="numberOfSeason">Number of Seasons</label>
+
+    <app-errors-form
+      [control]="form.controls.numberOfSeason"
+      controlLabel="'Number of seasons'">
+    </app-errors-form>
+  </div>
+
+  <div class="form-floating mb-3">
+    <input
+    type="text"
+    class="form-control"
+    id="description"
+    formControlName="description"
+    [(ngModel)]="serie.description">
+    <label for="description">Description of the serie</label>
+
+    <app-errors-form
+      [control]="form.controls.description"
+      controlLabel="'Description of the serie'">
+    </app-errors-form>
+  </div>
+
+  <div class="form-floating mb-3">
+    <input
+    type="text"
+    class="form-control"
+    id="critic"
+    formControlName="critic"
+    [(ngModel)]="serie.critic">
+    <label for="critic">Critic</label>
+
+    <app-errors-form
+      [control]="form.controls.critic"
+      controlLabel="'Critic'">
+    </app-errors-form>
+  </div>
+
+  <div class="form-floating mb-3">
+    <input
+    type="text"
+    class="form-control"
+    id="picture"
+    formControlName="picture"
+    [(ngModel)]="serie.picture">
+    <label for="picture">Image of the serie</label>
+
+    <app-errors-form
+      [control]="form.controls.picture"
+      controlLabel="'Image of the serie'">
+    </app-errors-form>
+  </div>
+
+  <div class="row col-6 mx-auto">
+    <button
+    [disabled]="form.invalid"
+    type="submit"
+    class="btn btn-dark btn-lg btn-block">
+    {{submitLabel}}
+    </button>
+    <a
+      routerLink="/series"
+      class="btn btn-outline-dark my-2">
+    BACK
+    </a>
+  </div>
+</form>
